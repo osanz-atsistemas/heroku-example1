@@ -35,6 +35,13 @@ public class Main {
       return "E=mc^2: 12 GeV = " + m.toString();
     });
 
+	    get("/test", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            attributes.put("message", "Hello World! Testing");
+
+            return new ModelAndView(attributes, "index.ftl");
+        }, new FreeMarkerEngine());
+	
     get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("message", "Hello World!");
